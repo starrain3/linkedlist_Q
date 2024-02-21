@@ -1,8 +1,3 @@
-//#include <iostream>
-//using namespace std;
-//int main() {
-//
-//}
 #include <stdlib.h>
 #include <stdbool.h>
 typedef struct node{
