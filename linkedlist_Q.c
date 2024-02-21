@@ -27,6 +27,7 @@ bool empty(Queue *Q) {
 void push(Queue *Q, int value) {
 	Node *newNode = (Node*)malloc(sizeof(Node));
 	newNode->value = value;
+	newNode->next = NULL;
 	if(empty(Q)) {
 		Q->head = newNode;
 		Q->tail = newNode;
