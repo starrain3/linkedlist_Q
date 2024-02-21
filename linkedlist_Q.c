@@ -1,3 +1,8 @@
+//#include <iostream>
+//using namespace std;
+//int main() {
+//
+//}
 #include <stdlib.h>
 #include <stdbool.h>
 typedef struct node{
@@ -24,6 +29,7 @@ bool empty(Queue *Q) {
     return true;
 }
 
+//push a new node into queue
 void push(Queue *Q, int value) {
 	Node *newNode = (Node*)malloc(sizeof(Node));
 	newNode->value = value;
@@ -33,11 +39,12 @@ void push(Queue *Q, int value) {
 		Q->tail = newNode;
 	}
 	else {
-		Q->head->next = newNode;
-		Q->head = 	Q->head->next;
+		Q->tail->next = newNode;
+		Q->tail = Q->tail->next;
 	}
 }
 
+//print out the first value in the queue
 int front(Queue *Q) {
 	if(empty(Q)) {
 		return 0;
@@ -45,15 +52,17 @@ int front(Queue *Q) {
 	return Q->head->value;
 }
 
+//pop a node out of the queue
 void pop(Queue *Q) {
 	if(empty(Q)) {
 		return;
 	}
-	Node* temp = Q->tail;
-	Q->tail = Q->tail->next;
+	Node* temp = Q->head;
+	Q->head = Q->head->next;
 	free(temp);
 }
 
+//print out the last value in the queue
 int back(Queue *Q) {
 	if(empty(Q)) {
 		return 0;
